@@ -1,5 +1,7 @@
-import base
-
+try:
+  from . import base
+except ImportError:
+  import base
 
 class Grep (base.Base):
     pass

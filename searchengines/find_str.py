@@ -1,5 +1,7 @@
-import base
-
+try:
+  from . import base
+except ImportError:
+  import base
 
 class FindStr (base.Base):
     """Uses Windows built-in findstr command."""

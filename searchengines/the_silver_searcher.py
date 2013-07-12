@@ -13,7 +13,10 @@ if cmd_subfolder not in sys.path:
  # __file__ fails if someone does os.chdir() before
  # sys.argv[0] also fails because it doesn't not always contains the path
 
-import base
+try:
+  from . import base
+except ImportError:
+  import base
 
 class TheSilverSearcher (base.Base):
     pass
