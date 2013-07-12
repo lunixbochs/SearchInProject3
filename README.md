@@ -1,6 +1,6 @@
 # Search In Project v1.2.0
 
-A plugin for [Sublime Text 2](http://www.sublimetext.com/).
+A plugin for [Sublime Text 3](http://www.sublimetext.com/).
 
 ## Synopsis
 
@@ -12,7 +12,7 @@ It's easy to add another search tool, if you so desire.
 
 ## Installation
 
-[Package Control](http://wbond.net/sublime_packages/package_control): install package **SearchInProject** (this is the recommended 
+[Package Control](http://wbond.net/sublime_packages/package_control): install package **SearchInProject** (this is the recommended
 
 Copy the folder into the Packages folder.
 
@@ -20,8 +20,8 @@ Copy the folder into the Packages folder.
 
 * Use the key binding (`⌘⌥⇧F` on OS X, `Ctrl+Alt+Shift+F` on Windows), or
 * Call the "Search in Project" command;
-* Enter the search query; **the query is passed directly to the shell command.** You are responsible for escaping the query, but on the up side you can specify any command line options to go with it. This plugin doesn't make an effort to abstract you away from search tools, but provides a convenient way of running them from Sublime Text 2 instead.
-* Hit `Enter` (`Return`). In a short while you'll be presented with a "quck select" panel with the search results. Select any file from that panel (it supports fuzzy searching) to go to the match. The search string will be highlighted with an outline and a circle symbol in the gutter area.
+* Enter the search query; **the query is passed directly to the shell command.** You are responsible for escaping the query, but on the up side you can specify any command line options to go with it. This plugin doesn't make an effort to abstract you away from search tools, but provides a convenient way of running them from Sublime Text 3 instead.
+* Hit `Enter` (`Return`). In a short while you'll be presented with a "quick select" panel with the search results. Select any file from that panel (it supports fuzzy searching) to go to the match. The search string will be highlighted with an outline and a circle symbol in the gutter area.
 
 If you select text and then run Search In Project, it will pre-fill the search string with the selection text; for example, to search for a word project-wide, do `⌘D, ⌘⌥⇧F, ↩`
 
