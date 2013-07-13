@@ -1,4 +1,12 @@
 import os, sys, inspect
+import sublime
+
+if int(sublime.version()) >= 3000:
+    from . import base
+else:
+    import base
+
+
 # realpath() with make your script run, even if you symlink it :)
 cmd_folder = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
 if cmd_folder not in sys.path:
@@ -13,10 +21,6 @@ if cmd_subfolder not in sys.path:
  # __file__ fails if someone does os.chdir() before
  # sys.argv[0] also fails because it doesn't not always contains the path
 
-try:
-  from . import base
-except ImportError:
-  import base
 
 class TheSilverSearcher (base.Base):
     pass
