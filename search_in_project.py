@@ -1,7 +1,10 @@
 import sublime
 import sublime_plugin
 import os.path
-import searchengines
+if int(sublime.version()) >= 3000:
+    from . import searchengines
+else:
+    import searchengines
 
 
 import os, sys, inspect
