@@ -36,7 +36,10 @@ class SearchInProjectCommand(sublime_plugin.WindowCommand):
         self.engine_name = self.settings.get("search_in_project_engine")
         pushd = os.getcwd()
         os.chdir(basedir)
-        __import__("searchengines.%s" % self.engine_name)
+        try:
+            __import__("searchengines.%s" % self.engine_name)
+        except ImportError:
+            pass
         self.engine = searchengines.__dict__[self.engine_name].engine_class(self.settings)
         os.chdir(pushd)
         view = self.window.active_view()
