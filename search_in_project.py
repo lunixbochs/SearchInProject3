@@ -1,5 +1,6 @@
 import sublime
 import sublime_plugin
+from threading import Thread
 import os.path
 if int(sublime.version()) >= 3000:
     from . import searchengines
@@ -43,8 +44,17 @@ class SearchInProjectCommand(sublime_plugin.WindowCommand):
         self.window.show_input_panel(
             "Search in project:",
             selection_text or self.last_search_string,
-            self.perform_search, None, None)
+            lambda text: self.background_search(view, text), None, None)
         pass
+
+    def background_search(self, view, text, threaded=False):
+        if not threaded:
+            Thread(target=self.background_search, args=(view, text, True)).start()
+            return
+
+        view.set_status('search', '[Searching...]')
+        self.perform_search(text)
+        view.erase_status('search')
 
     def perform_search(self, text):
         self.last_search_string = text
